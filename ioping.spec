@@ -14,7 +14,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This tool lets you monitor I/O latency in real time, in a way similar
 to how ping(1) does for network latency.
 
-
 %description -l pl.UTF-8
 To narzędzie pozwala na monitorowania opóźnień I/O w czasie
 rzeczywistym w sposób zbliżony do programu ping(1) mierzącego
@@ -25,13 +24,12 @@ opóźnienia w sieci.
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64" \
+	CFLAGS="%{rpmcflags} -std=c99 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64" \
 	LDFLAGS="%{rpmldflags} -lm" \
 	CC="%{__cc}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
 %{__make} install \
 	PREFIX="%{_prefix}" \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -41,5 +39,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/ioping
 %{_mandir}/man1/ioping.1*
-%attr(755,root,root) %{_bindir}/*
