@@ -1,12 +1,12 @@
 Summary:	simple disk I/O latency measuring tool
 Summary(pl.UTF-8):	proste narzędzie do badania opóźnień I/O dysku
 Name:		ioping
-Version:	0.7
+Version:	0.8
 Release:	1
 License:	GPL v3+
 Group:		Applications
 Source0:	http://ioping.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	5fea9fb35c38902e0c1fcb7ffe203931
+# Source0-md5:	7c91be09eef8c91199d7abfd1f4e673c
 URL:		http://code.google.com/p/ioping/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -24,7 +24,7 @@ opóźnienia w sieci.
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags} -std=c99 -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64" \
+	CFLAGS="%{rpmcflags} -std=c99" \
 	LDFLAGS="%{rpmldflags} -lm" \
 	CC="%{__cc}"
 
