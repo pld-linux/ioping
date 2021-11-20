@@ -2,7 +2,7 @@ Summary:	simple disk I/O latency measuring tool
 Summary(pl.UTF-8):	proste narzędzie do badania opóźnień I/O dysku
 Name:		ioping
 Version:	1.2
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications
 Source0:	https://github.com/koct9i/ioping/archive/refs/tags/v%{version}.tar.gz
