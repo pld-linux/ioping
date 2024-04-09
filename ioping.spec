@@ -1,12 +1,13 @@
 Summary:	simple disk I/O latency measuring tool
 Summary(pl.UTF-8):	proste narzędzie do badania opóźnień I/O dysku
 Name:		ioping
-Version:	1.2
-Release:	2
+Version:	1.3
+Release:	1
 License:	GPL v3+
 Group:		Applications
-Source0:	https://github.com/koct9i/ioping/archive/refs/tags/v%{version}.tar.gz
-# Source0-md5:	725a974e9be8a78c0f61e06463648e53
+#Source0Download: https://github.com/koct9i/ioping/releases
+Source0:	https://github.com/koct9i/ioping/archive/refs/tags/v%{version}/%{name}-%{version}.tar.gz
+# Source0-md5:	65d952eadb3bc5ae1c428c76e0ee8c52
 URL:		https://github.com/koct9i/ioping/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -30,6 +31,7 @@ opóźnienia w sieci.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	PREFIX="%{_prefix}" \
 	DESTDIR=$RPM_BUILD_ROOT
